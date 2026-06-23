@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>ピッチ練習トレーナー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>ピッチ練習トレーナー</h1>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-value" id="attempts">0</span>
+        <span class="stat-label">挑戦回数</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="hits">0</span>
+        <span class="stat-label">正解数</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="rate">0%</span>
+        <span class="stat-label">正解率</span>
+      </div>
+      <button class="btn-reset" id="resetBtn">リセット</button>
+    </div>
+
+    <!-- Note display -->
+    <div class="note-display">
+      <div class="note-name" id="noteName">?</div>
+      <div class="note-hint" id="noteHint">「音を再生」を押してください</div>
+    </div>
+
+    <!-- Pitch meter (hidden until listening) -->
+    <div class="meter-container" id="meterContainer" aria-hidden="true">
+      <div class="meter-labels">
+        <span>低い</span>
+        <span>ぴったり</span>
+        <span>高い</span>
+      </div>
+      <div class="meter-track">
+        <div class="meter-zone-good"></div>
+        <div class="meter-center-line"></div>
+        <div class="meter-needle" id="needle"></div>
+      </div>
+      <div class="meter-scale">
+        <span>-75¢</span>
+        <span>0¢</span>
+        <span>+75¢</span>
+      </div>
+    </div>
+
+    <!-- Result feedback -->
+    <div class="result" id="result" role="status" aria-live="polite"></div>
+
+    <!-- Instruction text -->
+    <p class="instruction">
+      再生後は画面から目を離して — まず小さくハミング、それからマイクに向かってしっかり歌ってください。
+    </p>
+
+    <!-- Main action buttons -->
+    <div class="buttons">
+      <button class="btn btn-play" id="playBtn">音を再生</button>
+      <button class="btn btn-sing" id="singBtn" disabled>歌ってみよう</button>
+    </div>
+
+    <!-- Range toggle -->
+    <div class="range-toggle">
+      <span class="range-label">音域：</span>
+      <button class="range-btn active" id="easyBtn">かんたん（C3〜C4）</button>
+      <button class="range-btn" id="fullBtn">フル（F#2〜F4）</button>
+    </div>
+
+    <!-- Last 10 attempts history chart -->
+    <div class="history-section">
+      <div class="history-title">直近10回の結果 — セント偏差</div>
+      <canvas id="historyChart" aria-label="直近10回のピッチ履歴"></canvas>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
