@@ -1,11 +1,7 @@
 'use strict';
 
-// ── Note bank: F#2 (92.50 Hz) to F4 (349.23 Hz), semitone steps ─────────────
+// ── Note bank: A#2 (116.54 Hz) to C5 (523.25 Hz), semitone steps ─────────────
 const ALL_NOTES = [
-  { name: 'F#2', freq: 92.50  },
-  { name: 'G2',  freq: 98.00  },
-  { name: 'G#2', freq: 103.83 },
-  { name: 'A2',  freq: 110.00 },
   { name: 'A#2', freq: 116.54 },
   { name: 'B2',  freq: 123.47 },
   { name: 'C3',  freq: 130.81 },
@@ -26,10 +22,17 @@ const ALL_NOTES = [
   { name: 'D#4', freq: 311.13 },
   { name: 'E4',  freq: 329.63 },
   { name: 'F4',  freq: 349.23 },
+  { name: 'F#4', freq: 369.99 },
+  { name: 'G4',  freq: 392.00 },
+  { name: 'G#4', freq: 415.30 },
+  { name: 'A4',  freq: 440.00 },
+  { name: 'A#4', freq: 466.16 },
+  { name: 'B4',  freq: 493.88 },
+  { name: 'C5',  freq: 523.25 },
 ];
 
-// Easy mode: C3 through C4 (indices 6–18 inclusive)
-const EASY_NOTES = ALL_NOTES.slice(6, 19);
+// Easy mode: C3 through C4 (indices 2–14 inclusive)
+const EASY_NOTES = ALL_NOTES.slice(2, 15);
 
 // ── App state ─────────────────────────────────────────────────────────────────
 let audioCtx     = null;   // lazy-created on first user gesture
